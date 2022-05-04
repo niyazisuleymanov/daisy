@@ -1,6 +1,6 @@
 const addToList = (url) => {
-  var ul = document.getElementById("domain-names");
-  var li = document.createElement("li");
+  let ul = document.getElementById("domain-names");
+  let li = document.createElement("li");
   li.setAttribute("id", url)
   li.innerHTML = `${url}<button id="remove">remove</button>`;
   ul.appendChild(li);
@@ -15,15 +15,15 @@ const initializeList = () => {
 }
 
 document.getElementById("domain-names").onclick = (e) => {
-  var target = e.target;
+  const target = e.target;
   if (target.tagName === "BUTTON") {
-    var li = target.closest("li");
+    let li = target.closest("li");
     chrome.declarativeNetRequest.getDynamicRules((rules) => {
-      var urls = [];
+      let urls = [];
       for (let i = 0; i < rules.length; i++) {
         urls.push(rules[i].condition.urlFilter);
       }  
-      var index = urls.indexOf(li.id);
+      const index = urls.indexOf(li.id);
       if (index !== -1) {
         chrome.declarativeNetRequest.updateDynamicRules({
           removeRuleIds: [rules[index].id]
@@ -36,14 +36,14 @@ document.getElementById("domain-names").onclick = (e) => {
 }
   
 document.getElementById("add").onclick = () => {
-  var domain = document.getElementById("domain").value;
+  const domain = document.getElementById("domain").value;
   if (domain == "") {
     alert("domain name cannot be empty");
   } else if (domain.includes("google.com")) {
     alert(`cannot incognito ${domain}`);
   } else {
     chrome.declarativeNetRequest.getDynamicRules((rules) => {
-      var urls = [];
+      let urls = [];
       for (let i = 0; i < rules.length; i++) {
         urls.push(rules[i].condition.urlFilter);
       }
