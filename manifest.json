@@ -1,5 +1,5 @@
 {
-  "name": "incog",
+  "name": "daisy",
   "description": "list domain names to open in incognito mode (medium.com is listed by default)",
   "version": "1.0",
   "manifest_version": 3,
@@ -7,7 +7,7 @@
     "service_worker": "background.js"
   },
   "action": {
-    "default_title": "incog",
+    "default_title": "daisy",
     "default_popup": "popup.html"
   },
   "permissions": [
