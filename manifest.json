@@ -17,8 +17,7 @@
   },
   "permissions": [
     "declarativeNetRequest",
-    "declarativeNetRequestFeedback",
-    "tabs"
+    "declarativeNetRequestFeedback"
   ],
   "host_permissions": [
     "*://*/*"
